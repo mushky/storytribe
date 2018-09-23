@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Latest Stories</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_story_path, class: 'btn btn-primary' do %>
+    Add New Story
+  <% end %>
+  </div>
+</div>
+
+<% @stories.each do |story| %>
+  <%= content_tag :tr, id: dom_id(story), class: dom_class(story) do %>
+        
+    <h3><%= link_to story.title, story %></h3>
+    <p>Written by: <%= story.user.name %></p>
+
+    <p><%= story.body %></p>                    
+    <hr>    
+  <% end %>
+<% end %>

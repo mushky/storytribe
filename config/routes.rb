@@ -3,6 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   namespace :admin do
       resources :users
+      resources :stories      
       resources :announcements
       resources :notifications
       resources :services
@@ -18,6 +19,9 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
-  root to: 'home#index'
+
+  resources :stories
+
+  root to: 'stories#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
