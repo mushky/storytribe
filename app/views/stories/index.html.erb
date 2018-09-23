@@ -16,7 +16,7 @@
     <h3><%= link_to story.title, story %></h3>
     <p>Written by: <%= story.user.name %></p>
 
-    <p><%= story.body %></p>                    
+    <p><%= markdown(story.body.truncate(300,seperator: '\n')) %></p>                    
     <hr>    
   <% end %>
 <% end %>

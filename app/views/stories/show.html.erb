@@ -3,24 +3,15 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     All Stories
   <% end %>
-  <%= link_to edit_story_path(@story), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+  <% if current_user %>
+    <%= link_to  "Edit", edit_story_path(@story), class: "btn btn-primary" %>
   <% end %>
 
-<p>
-  <% if @story.published? %>
-    <span class="label label-success">Published</span>
-  <% else %>
-    <span class="label label-default">Draft</span>
-  <% end %>
-</p> 
- 
   <h1><%= @story.title %></h1>
   <p><em>Written by <%= @story.user.name %></em></p>
 </div>
 
-<p><%= @story.body %></p>
+<p><%= markdown(@story.body) %></p>
 
 <p><em>Tags:<%= @story.tags %></em></p>
 
