@@ -12,8 +12,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'redcarpet'
-gem 'coderay'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -38,6 +36,7 @@ gem 'administrate', '~> 0.10.0'
 gem 'bootstrap', '~> 4.1', '>= 4.1.1'
 gem 'data-confirm-modal', '~> 1.6', '>= 1.6.2'
 gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'cancancan', '~> 2.0'
 gem 'devise-bootstrapped', github: 'excid3/devise-bootstrapped', branch: 'bootstrap4'
 gem 'devise_masquerade', '~> 0.6.2'
 gem 'font-awesome-sass', '~> 5.0', '>= 5.0.13'
@@ -54,3 +53,5 @@ gem 'sidekiq', '~> 5.1', '>= 5.1.3'
 gem 'sitemap_generator', '~> 6.0', '>= 6.0.1'
 gem 'webpacker', '~> 3.5', '>= 3.5.3'
 gem 'whenever', require: false
+gem 'redcarpet'
+gem 'coderay'

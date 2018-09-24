@@ -1,17 +1,17 @@
 class StoriesController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
-  before_action :set_story, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
+    @stories = Story.all.order("updated_at DESC")
   end
 
   # GET /stories/1
   # GET /stories/1.json
   def show
-    @story = Story.find(params[:id])
+    #@story = Story.find(params[:id])
   end
 
   # GET /stories/new
@@ -21,7 +21,7 @@ class StoriesController < ApplicationController
 
   # GET /stories/1/edit
   def edit
-    @story = Story.find(params[:id])  
+    @story = Story.find(params[:id])
   end
 
   # POST /stories
@@ -66,11 +66,9 @@ class StoriesController < ApplicationController
   end
 
   private
-    def set_story
-      @story = Story.find(params[:id])
-    end
 
     def story_params
       params.require(:story).permit(:user_id, :title, :body, :tags)
     end
+
 end

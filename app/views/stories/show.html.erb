@@ -3,9 +3,8 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     All Stories
   <% end %>
-  <% if current_user %>
-    <%= link_to  "Edit", edit_story_path(@story), class: "btn btn-primary" %>
-  <% end %>
+  <%= link_to "Edit", edit_story_path(@story), class: "btn btn-primary" if can? :update, Story%>
+  
 
   <h1><%= @story.title %></h1>
   <p><em>Written by <%= @story.user.name %></em></p>

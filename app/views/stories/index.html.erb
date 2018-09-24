@@ -4,8 +4,10 @@
   </div>
 
   <div class="col-sm-6 text-right">
-  <%= link_to new_story_path, class: 'btn btn-primary' do %>
-    Add New Story
+  <% if can? :create, Story %>
+    <%= link_to new_story_path, class: 'btn btn-primary' do %>
+      Add New Story
+    <% end %>
   <% end %>
   </div>
 </div>
@@ -13,7 +15,7 @@
 <% @stories.each do |story| %>
   <%= content_tag :tr, id: dom_id(story), class: dom_class(story) do %>
         
-    <h3><%= link_to story.title, story %></h3>
+    <h3><%= link_to story.title, story if can? :read, story %></h3>
     <p>Written by: <%= story.user.name %></p>
 
     <p><%= markdown(story.body.truncate(300,seperator: '\n')) %></p>                    

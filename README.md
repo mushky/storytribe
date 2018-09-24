@@ -11,3 +11,9 @@ Users can publish stories onto the main feed
 Gamification: Users receive achievements for writing a certain number of stories or receiving accolades from users
 
 Users have dashboards
+
+TODO:
+
+Authorization (prevent users from deleting or editing other user stories)
+Accolades for Stories
+Feed System 
