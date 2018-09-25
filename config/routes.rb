@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
       root to: "users#index"
     end
+  resources :users, only: [:show]
+  
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
   resources :notifications, only: [:index]

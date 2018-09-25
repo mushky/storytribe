@@ -1,0 +1,6 @@
+<h1><%= @user.name %></h1>
+
+<% @user.stories.each do |story| %>
+	<p><%= story.title %></p>
+	<p><%= story.body %></p>
+<% end %>

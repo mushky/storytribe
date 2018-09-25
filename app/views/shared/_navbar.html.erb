@@ -1,14 +1,13 @@
 <% if user_masquerade? %>
   <div class="alert alert-warning text-center">
-    You're logged in as <b><%= current_user.name %> (<%= current_user.email %>)</b>
+    You're logged in as <b><%= current_user.name %> (<%= current_user.name %>)</b>
     <%= link_to back_masquerade_path(current_user) do %><%= icon("fas", "times") %> Logout <% end %>
   </div>
 <% end %>
 
 <nav class="navbar navbar-expand-md navbar-light bg-light">
   <div class="container">
-    <%= link_to Rails.configuration.application_name, root_path, class: "navbar-brand" %>
-
+    <%= link_to Rails.configuration.application_name, root_path, class: "navbar-brand" %> <b>    <%= link_to current_user.name, current_user if user_signed_in? %></b>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,8 +34,11 @@
               <% if current_user.admin? %>
                 <%= link_to "Admin Area", admin_root_path, class: "dropdown-item" %>
               <% end %>
+              <%= link_to "Profile", current_user, class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>              
               <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
+
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
