@@ -33,8 +33,13 @@
       </div>
     <% end %>
 
-    <%= form.submit "Publish", class: 'btn btn-primary' %>
-    <%= form.submit "Save as Draft", class: 'btn btn-default' %>
+    <% if @story.published? %>
+      <%= form.submit "Update", class: "btn btn-primary" %>
+      <%= form.submit "Unpublish", class: "btn btn-default" %>
+    <% else %>
+      <%= form.submit "Publish", class: "btn btn-primary" %>
+      <%= form.submit "Save as Draft", class: "btn btn-default" %>
+    <% end %>
 
     <% if story.persisted? %>
       <%= link_to "Cancel", story, class: "btn btn-link" %>

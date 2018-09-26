@@ -30,6 +30,8 @@ class StoriesController < ApplicationController
     @story = Story.new(story_params)
     @story.user = current_user
 
+    @story.published_at = Time.zone.now if publishing?   
+
     respond_to do |format|
       if @story.save
         format.html { redirect_to @story, notice: 'Story was successfully created.' }
@@ -44,6 +46,9 @@ class StoriesController < ApplicationController
   # PATCH/PUT /stories/1
   # PATCH/PUT /stories/1.json
   def update
+    @story.published_at = Time.zone.now if publishing?
+    @story.published_at = nil if unpublishing?
+
     respond_to do |format|
       if @story.update(story_params)
         format.html { redirect_to @story, notice: 'Story was successfully updated.' }
@@ -70,11 +75,13 @@ class StoriesController < ApplicationController
     def story_params
       params.require(:story).permit(:user_id, :title, :body, :tags)
     end
-
-    def published?
-      params[:commit] == "published"
+    
+    def publishing?
+      params[:commit] == "Publish"
     end
 
-    
+    def unpublishing?
+      params[:commit] == "Unpublish"
+    end
 
 end

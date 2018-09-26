@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
       root to: "users#index"
     end
-  resources :users, only: [:show]
   
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
@@ -23,7 +22,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   resources :stories
+  resources :users, only: [:show]
 
   root to: 'stories#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
