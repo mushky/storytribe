@@ -71,4 +71,10 @@ class StoriesController < ApplicationController
       params.require(:story).permit(:user_id, :title, :body, :tags)
     end
 
+    def published?
+      params[:commit] == "published"
+    end
+
+    
+
 end

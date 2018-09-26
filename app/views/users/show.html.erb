@@ -1,6 +1,8 @@
-<h1><%= @user.name %></h1>
+<h1><%= @user.name.pluralize %> Profile</h1>
+
+<p><%= link_to "Create New Story", new_story_path, class: "btn btn-primary float-right" %></p>
 
 <% @user.stories.each do |story| %>
-	<p><%= story.title %></p>
-	<p><%= story.body %></p>
+	<h3><%= link_to story.title, story %></h3>
+	<p><%= markdown(story.body.truncate(500, seperator: "\n")) %></p>
 <% end %>
