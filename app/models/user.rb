@@ -7,11 +7,7 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
   has_many :stories, dependent: :destroy
-
-
-	def default_regular_user
-		self.role = 'regular'
-	end
+  has_many :likes
 
 	def admin?
     role == "admin"
@@ -23,6 +19,10 @@ class User < ApplicationRecord
 
 	def guest?
     role == "guest"
+	end
+
+	def likes?(story)
+    story.likes.where(user_id: id).any?
 	end
 	
 end

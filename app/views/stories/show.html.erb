@@ -7,6 +7,9 @@
 
 <div class="story jumbotron">
  
+<div id="story_<%= @story.id %>_likes" class="float-right">
+	<%= render partial: "likes", locals: {story: @story} %>
+</div>
   <% if can? :update, @story %>
     <%= link_to "Edit", edit_story_path(@story), class: "btn btn-primary float-right" %>
   <% end %>
@@ -24,3 +27,4 @@
 
 	<p><em>Tags:<%= @story.tags %></em></p>
 </div>
+

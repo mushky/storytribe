@@ -18,6 +18,7 @@
       <div class="jumbotron story">    
         <h3><%= link_to story.title, story if can? :read, story %></h3>
         <p><em>Written by: <%= story.user.name %></em></p>
+        <%= render partial: "likes", locals: {story: story} %>
         <p><%= markdown(story.body.truncate(300,seperator: '\n')) %></p>                    
       </div>
     <% end %>

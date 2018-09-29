@@ -1,0 +1,11 @@
+<% if user_signed_in? && current_user.likes?(story) %>
+  <%= link_to story_like_path(story), method: :delete do %>
+		<i class="fa fa-heart text-hearted"></i>
+	<% end %>
+<% else %>
+  <%= link_to story_like_path(story), method: :story do %>
+  	<i class="fa fa-heart text-muted"></i>
+  <% end %>
+<% end %>
+
+<%= story.likes.count %>
