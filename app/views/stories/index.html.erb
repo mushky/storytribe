@@ -15,10 +15,9 @@
 <% @stories.each do |story| %>
   <% if story.published_at %>
     <%= content_tag :div, id: dom_id(story), class: dom_class(story) do %>
-      <div class="jumbotron">    
+      <div class="jumbotron story">    
         <h3><%= link_to story.title, story if can? :read, story %></h3>
         <p><em>Written by: <%= story.user.name %></em></p>
-
         <p><%= markdown(story.body.truncate(300,seperator: '\n')) %></p>                    
       </div>
     <% end %>

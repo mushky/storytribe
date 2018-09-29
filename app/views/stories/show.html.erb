@@ -1,23 +1,26 @@
 <div class="page-header">
-  <%= link_to stories_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    All Stories
-  <% end %>
-  <% if can? :update, @story %>
-    <%= link_to "Edit", edit_story_path(@story), class: "btn btn-primary" %>
-  <% end %>
   
-  <% if @story.published? %>
-    <span class="label label-success">Published</span>
-  <% else %>
-    <span class="label label-default">Draft</span>
-  <% end %>
-  <h1><%= @story.title %></h1>
-  <p><em>Written by <%= @story.user.name %></em></p>
+  <p><%= link_to stories_path, class: 'btn-sm btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt">All Stories</span>
+  <% end %></p>
 </div>
 
-<p><%= markdown(@story.body) %></p>
+<div class="story jumbotron">
+ 
+  <% if can? :update, @story %>
+    <%= link_to "Edit", edit_story_path(@story), class: "btn btn-primary float-right" %>
+  <% end %>
 
-<p><em>Tags:<%= @story.tags %></em></p>
+	<% if @story.published? %>
+	  <span class="btn btn-info">Published</span>
+	<% else %>
+	  <span class="btn-lg btn-secondary">Draft</span>
+	<% end %>
 
+	<h1><%= @story.title %></h1>
+	<p><em>Written by <%= @story.user.name %></em></p>
 
+	<p><%= markdown(@story.body) %></p>
+
+	<p><em>Tags:<%= @story.tags %></em></p>
+</div>
