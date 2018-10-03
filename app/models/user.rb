@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-	before_create :default_regular_user
+	before_create :set_regular_user
   devise :masqueradable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
 
   has_many :notifications, foreign_key: :recipient_id
@@ -26,7 +26,8 @@ class User < ApplicationRecord
 	end
 
   private
-  def default_regular_user
+
+  def set_regular_user
     self.role == "regular"
   end
 	
