@@ -24,5 +24,10 @@ class User < ApplicationRecord
 	def likes?(story)
     story.likes.where(user_id: id).any?
 	end
+
+  private
+  def default_regular_user
+    self.role ||= Role_by_name('regular')
+  end
 	
 end
