@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
   private
   def default_regular_user
-    self.role ||= Role_by_name('regular')
+    self.role == "regular"
   end
 	
 end
