@@ -1,19 +1,7 @@
 # README
 
-Users have_many Stories
-Stories have_many Accolades
-
-Features: 
-
-Users can save stories as drafts that don't get published.
-Users can publish stories onto the main feed
-
-Gamification: Users receive achievements for writing a certain number of stories or receiving accolades from users
-
-Users have dashboards
-
 TODO:
 
-Authorization (prevent users from deleting or editing other user stories)
-Accolades for Stories
-Feed System 
+Feed System for displaying stories on the main page
+
+Gamification: Users receive achievements for writing a certain number of stories or receiving accolades from users
