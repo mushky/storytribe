@@ -9,13 +9,13 @@ class User < ApplicationRecord
   has_many :stories, dependent: :destroy
   has_many :likes
 
-	def admin?
+  def admin?
     role == "admin"
-	end 
+  end 
 
-	def regular?
+  def regular?
     role == "regular"
-	end 
+  end 
 
 	def guest?
     role == "guest"
