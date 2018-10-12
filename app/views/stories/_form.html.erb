@@ -16,11 +16,11 @@
   </div>
 
   <div class="form-group">
-    <%= form.text_area :body, size: "50x15", class: 'form-control full-height pad', placeholder: "Start Writing..." %>
+    <%= form.text_area :body, size: "50x15", class: 'form-control pad', id:'content',placeholder: "Start Writing..." %>
   </div>
 
   <div class="form-group">
-    <%= form.text_field :tags, class: 'form-control pad', id: "pad", placeholder: "Tags..." %>
+    <%= form.text_field :tags, class: 'form-control pad', placeholder: "Tags..." %>
   </div>
 
   <div class="form-group">
@@ -45,3 +45,10 @@
     <% end %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$('#content').on( 'change keyup keydown paste cut', 'textarea', function (){
+  $(this).height(0).height(this.scrollHeight);
+}).find('textarea').change();
+
+</script>
