@@ -12,18 +12,15 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: 'form-control' %>
+    <%= form.text_field :title, class: 'form-control full-height pad', placeholder: "Give your story a title" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :body %>
-    <%= form.text_area :body, size: "50x15", class: 'form-control' %>
+    <%= form.text_area :body, size: "50x15", class: 'form-control full-height pad', placeholder: "Start Writing..." %>
   </div>
 
   <div class="form-group">
-    <%= form.label :tags %>
-    <%= form.text_field :tags, class: 'form-control' %>
+    <%= form.text_field :tags, class: 'form-control pad', id: "pad", placeholder: "Tags..." %>
   </div>
 
   <div class="form-group">

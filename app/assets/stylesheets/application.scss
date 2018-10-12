@@ -28,3 +28,21 @@ body > .alert {
 .float-right {
   float: right;
 }
+
+.full-height {
+  height: 100%;
+}
+
+.pad{
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+  background-color: #F8ECC2;
+  border: none;
+  overflow: auto;
+  outline: none;
+  resize: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
