@@ -1,9 +1,9 @@
-<h1><%= @user.name.pluralize %> Profile</h1>
+<h2><%= @user.name.pluralize %> Published Stories</h2>
 
 <p><%= link_to "Create New Story", new_story_path, class: "btn btn-primary float-right" %></p>
 
 <% @user.stories.each do |story| %>
-	<h3><%= link_to story.title, story %></h3>
+	<h4><%= link_to story.title, story %></h4>
 	<p>Written by: <%= story.user.name %></p>
 	<hr>
 <% end %>
