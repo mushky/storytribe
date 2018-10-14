@@ -4,5 +4,6 @@
 
 <% @user.stories.each do |story| %>
 	<h3><%= link_to story.title, story %></h3>
-	<p><%= markdown(story.body.truncate(500, seperator: "\n")) %></p>
+	<p>Written by: <%= story.user.name %></p>
+	<hr>
 <% end %>
