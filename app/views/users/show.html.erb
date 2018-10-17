@@ -2,8 +2,27 @@
 
 <p><%= link_to "Create New Story", new_story_path, class: "btn btn-primary float-right" %></p>
 
-<% @user.stories.each do |story| %>
-	<h4><%= link_to story.title, story %></h4>
-	<p>Written by: <%= story.user.name %></p>
-	<hr>
-<% end %>
+<div class="row">
+	<div class="col-md-6">
+		<h3>Published Stories</h3>
+		<% @user.stories.each do |story| %>
+		  <% if story.published_at %>
+				<h4><%= link_to story.title, story %></h4>
+				<p>Written by: <%= story.user.name %></p>
+				<hr>
+			<% end %>
+		<% end %>
+	</div>
+
+	<div class="col-md-6">
+	<% if @user == current_user %>
+		<h3>Drafts</h3>
+		<% @user.stories.each do |story| %>
+			<h4><%= link_to story.title, story %></h4>
+			<p>Written By: <%= story.user.name %></p>
+			<hr>
+		<% end %>
+	</div>
+	<% end %>
+
+</div>
